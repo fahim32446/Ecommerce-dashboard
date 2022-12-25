@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { NavLink  } from "react-router-dom";
+import Dashboard from '../../assets/dashboard.svg'
+import Product from '../../assets/product-svg.svg'
+import Control from '../../assets/control.png'
+
 
 const SideNav = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { id: 0, title: "Dashboard", src: "dashboard" },
-    { id: 1, title: "Products", src: "product-svg" },
+    { id: 0, title: "Dashboard", src: Dashboard },
+    { id: 1, title: "Products", src: Product },
   ];
 
   return (
@@ -15,7 +19,7 @@ const SideNav = () => {
       } bg-white h-[900px] p-2 pt-8 relative transition duration-200`}
     >
       <img
-        src="./src/assets/control.png"
+        src={Control}
         className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
         onClick={() => setOpen(!open)}
@@ -41,7 +45,7 @@ const SideNav = () => {
             activeclassName="active"
             className="flex duration-200 transition rounded-md p-2 cursor-pointer hover:bg-blue-400 hover:text-white text-dark font-semibold text-sm items-center gap-x-4 mt-2"
           >
-            <img className="w-8 " src={`./src/assets/${Menu.src}.svg`} />
+            <img className="w-8 " src={Menu.src} />
             <span className={`${!open && "hidden"} origin-left duration-200 transition`}>
               {Menu.title}
             </span>
